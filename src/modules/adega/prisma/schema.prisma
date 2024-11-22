@@ -1,0 +1,19 @@
+generator client {
+    provider = "prisma-client-js"
+    output   = "../generated"
+}
+
+datasource db {
+    provider = "postgresql"
+    url      = env("ADEGA_DATABASE_URL")
+}
+
+model Wine {
+    id       String  @id @default(uuid())
+    name     String
+    grape    String
+    region   String
+    year     Int
+    quantity Int
+    createdAt DateTime @default(now())
+}
